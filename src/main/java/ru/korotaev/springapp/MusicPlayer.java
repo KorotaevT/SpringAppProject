@@ -1,14 +1,20 @@
 package ru.korotaev.springapp;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component("MusicPlayer")
 public class MusicPlayer {
     private List<Music> musicList = new ArrayList<>();
 
     private String name;
     private  int volume;
 
+    public MusicPlayer(Music music){
+        musicList.add(music);
+    }
     public String getName() {
         return name;
     }

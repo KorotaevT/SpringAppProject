@@ -2,24 +2,17 @@ package ru.korotaev.springapp;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.lang.invoke.MutableCallSite;
+
 public class TestSpring {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        Music music1 = context.getBean("classicalMusic1", Music.class);
+        Music music2 = context.getBean("rockMusic1", Music.class);
+        Music music3 = context.getBean("rapMusic1", Music.class);
 
-        boolean comparation = firstMusicPlayer == secondMusicPlayer;
-
-        System.out.println(comparation);
-
-        System.out.println(firstMusicPlayer);
-        System.out.println(secondMusicPlayer);
-
-        firstMusicPlayer.setVolume(10);
-
-        System.out.println(firstMusicPlayer.getVolume());
-        System.out.println(secondMusicPlayer.getVolume());
+        MusicPlayer firstMusicPlayer = new MusicPlayer(music1);
 
         firstMusicPlayer.playMusic();
 

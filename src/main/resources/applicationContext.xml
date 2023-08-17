@@ -9,30 +9,6 @@
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="musicBean1"
-          class="ru.korotaev.springapp.ClassicalMusic">
-    </bean>
-
-    <bean id="musicBean2"
-          class="ru.korotaev.springapp.RockMusic">
-    </bean>
-
-    <bean id="musicBean3"
-          class="ru.korotaev.springapp.RapMusic">
-    </bean>
-
-    <bean id="musicPlayer"
-          class="ru.korotaev.springapp.MusicPlayer"
-          scope="prototype">
-        <property name="musicList">
-            <list>
-                <ref bean="musicBean1"/>
-                <ref bean="musicBean2"/>
-                <ref bean="musicBean3"/>
-            </list>
-        </property>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+    <context:component-scan base-package="ru.korotaev.springapp"/>
 
 </beans>
