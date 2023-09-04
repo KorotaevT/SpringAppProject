@@ -1,5 +1,7 @@
 package ru.korotaev.springapp;
 
+import java.util.List;
+
 public interface Music {
-    String GetSong();
+    List<String> getSongs();
 }
